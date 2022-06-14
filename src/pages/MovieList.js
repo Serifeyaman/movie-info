@@ -27,10 +27,17 @@ const MovieList = () => {
       maxWidth: "12%"
     },
     {
-      name: "Başlık",
+      name: "Adı",
       selector: row => row.Title,
       sortable: true,
-      maxWidth: "35%"
+      maxWidth: "35%",
+      cell: (a) => {
+        return (
+          <Link style={{textDecoration:'none'}} to={`movieDetail/${a.imdbID}`}>
+            <span style={{color:'black'}}>{a.Title}</span>
+          </Link>
+        )
+      }
     },
     {
       name: "Tür",
@@ -59,7 +66,7 @@ const MovieList = () => {
 
   return (
     <div>
-      <CustomDatatable columns={columns} title="Filmler" data={movieList?.Search} dataLength={movieList?.totalResults}/>
+      <CustomDatatable columns={columns} title="Filmler" data={movieList?.Search} dataLength={movieList?.totalResults} />
     </div>
   )
 }
