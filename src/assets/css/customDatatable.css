@@ -1,0 +1,17 @@
+.dataTableCard{
+    display: flex;
+    margin: auto;
+    border-radius: 8;
+    background-color: #fff;
+    width: 98%;
+    height: 95%;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    padding: 1%;
+}
+
+.idPHNo{
+    color: #22577e !important;
+    font-size: large !important;
+    font-weight: 600 !important;
+}
