@@ -2,7 +2,7 @@ import CustomDatatable from 'components/CustomDatatable'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Button, Card, CardBody, CardHeader, CardTitle, Col, Input, Label, Row } from 'reactstrap'
+import { Button, Card, CardHeader, CardTitle, Col, Input, Label, Row } from 'reactstrap'
 import { getMoviesBySearchValue } from 'redux/movie/action'
 import { myContext } from 'utility/MyContext'
 
@@ -117,19 +117,20 @@ const MovieList = () => {
               <Input
                 className='filterInput'
                 type='text'
-                bsSize='lg'
+                bsSize='md'
                 onChange={handleFilter}
                 defaultValue={"Pokemon"}
               />
             </Col>
             <Col >
               <Label className='filterLabel'>
-                Vizyona Girme Tarihi
+                Tarih 
               </Label>
               <Input
+                placeholder='Yayınlanma Tarihi Ara'
                 className='filterInput'
                 type='text'
-                bsSize='lg'
+                bsSize='md'
                 onChange={(e) => changeYear(e)}
               />
             </Col>
@@ -140,14 +141,14 @@ const MovieList = () => {
               <Input
                 className='filterInput'
                 type='text'
-                bsSize='lg'
+                bsSize='md'
                 type="select"
                 onChange={(e) => changeType(e)}
               >
-                <option value={""}>Tür Seçiniz</option>
-                <option value={"series"}>Dizi</option>
-                <option value={"movie"}>Film</option>
-                <option value={"episode"}>Bölüm</option>
+                <option value={""} style={{color:'red'}}>Tür Seçiniz</option>
+                <option value={"series"}>Series</option>
+                <option value={"movie"}>Movie</option>
+                <option value={"episode"}>Episode</option>
               </Input>
             </Col>
           </Row>

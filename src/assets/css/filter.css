@@ -13,5 +13,10 @@
 }
 
 .filterInput{
+    color: #4b494d !important;
+}
+
+
+.filterInput::placeholder{
     color: #9c9aa0 !important;
 }
