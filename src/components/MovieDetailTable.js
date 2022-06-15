@@ -22,7 +22,7 @@ const MovieDetailTable = () => {
         },
         {
             colTitle: "Tür",
-            colValue: movieDetail?.Type
+            colValue: <span style={{textTransform:'capitalize'}}>{movieDetail?.Type} / {movieDetail?.Genre}</span>
         },
         {
             colTitle: "Yönetmen",

@@ -43,7 +43,10 @@ const MovieList = () => {
       name: "Tür",
       selector: row => row.Type,
       sortable: true,
-      maxWidth: "15%"
+      maxWidth: "15%",
+      cell: (a) => {
+        return (<span style={{ textTransform: 'capitalize' }}>{a.Type}</span>)
+      }
     },
     {
       name: "Yayınlandığı Tarih",
@@ -124,7 +127,7 @@ const MovieList = () => {
             </Col>
             <Col >
               <Label className='filterLabel'>
-                Tarih 
+                Tarih
               </Label>
               <Input
                 placeholder='Yayınlanma Tarihi Ara'
@@ -145,10 +148,9 @@ const MovieList = () => {
                 type="select"
                 onChange={(e) => changeType(e)}
               >
-                <option value={""} style={{color:'red'}}>Tür Seçiniz</option>
+                <option value={""} style={{ color: 'red' }}>Tür Seçiniz</option>
                 <option value={"series"}>Series</option>
                 <option value={"movie"}>Movie</option>
-                <option value={"episode"}>Episode</option>
               </Input>
             </Col>
           </Row>

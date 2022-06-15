@@ -16,20 +16,20 @@ const MovieDetail = () => {
   }, [id])
 
   return (
-      <Card style={{ display: 'flex', margin: 'auto', borderRadius: 8, backgroundColor: '#fff', marginTop: '5%', width: '65%' }}>
+      <Card className='detailCard'>
         <Row>
           <Breadcrumb className='p-4'>
-            <BreadcrumbItem><a style={{ textDecoration: 'none', color: '#827397', fontSize: 20 }} href="/">Film Listesi</a></BreadcrumbItem>
-            <BreadcrumbItem><a style={{ textDecoration: 'underline', fontSize: 20, fontWeight: 'bold', color: '#827397' }}>Film Bilgileri</a></BreadcrumbItem>
+            <BreadcrumbItem><a className='crumbs-item1' href="/">Film Listesi</a></BreadcrumbItem>
+            <BreadcrumbItem><a className='crumbs-item2'>Film Bilgileri</a></BreadcrumbItem>
           </Breadcrumb>
         </Row>
 
         <CardHeader className='border-bottom'>
-          <CardTitle style={{ color: '#827397' }} tag='h4'>{movieDetail?.Title} / {movieDetail?.Year}</CardTitle>
+          <CardTitle style={{ color: '#827397' }} tag='h4'>{movieDetail?.Title}</CardTitle>
         </CardHeader>
         <CardBody>
           <Row>
-            <Col lg="4" style={{ justifyContent: 'center', display: 'flex', alignItems: 'center' }}>
+            <Col lg="4" className='detailCard-imgCol'>
               <img src={movieDetail?.Poster} width="100%" alt='bookImage' />
             </Col>
             <Col lg="8">

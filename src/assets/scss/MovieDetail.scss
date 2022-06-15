@@ -1,0 +1,24 @@
+.detailCard {
+	display: flex;
+	margin: auto;
+	background-color: #fff;
+	margin-top: 5%;
+	width: 65%;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.crumbs-item1 {
+	text-decoration: none !important;
+	color: #827397 !important;
+	font-size: 20px !important;
+}
+.crumbs-item2 {
+	text-decoration: underline !important;
+	color: #827397 !important;
+	font-size: 20px !important;
+	font-weight: bold !important;
+}
+.detailCard-imgCol {
+	justify-content: center;
+	display: flex;
+	align-items: center;
+}
