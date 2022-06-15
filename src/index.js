@@ -5,6 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'assets/scss/CustomDatatable.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'assets/scss/CustomDatatable.scss'
+import 'assets/scss/Paginate.scss'
+import 'assets/scss/Filter.scss'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

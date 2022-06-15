@@ -1,0 +1,16 @@
+.filterInput {
+	padding: 0.438rem 1rem;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #d8d6de !important;
+	border-radius: 0.357rem;
+	color: #4b494d !important;
+	&::placeholder {
+		color: #9c9aa0 !important;
+	}
+}
+.filterLabel {
+	color: #5e5873;
+	font-size: .857rem;
+	margin-left: 1%;
+}

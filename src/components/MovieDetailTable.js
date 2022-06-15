@@ -46,7 +46,7 @@ const MovieDetailTable = () => {
         <>
             {
                 detailData?.map((item, key) => (
-                    <Row style={{ padding: '3%' }}>
+                    <Row key={key} style={{ padding: '3%' }}>
                         <Col lg="4">
                             <h6>{item.colTitle} : </h6>
                         </Col>

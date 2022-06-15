@@ -2,9 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 import { ChevronDown, ChevronLeft, ChevronRight } from 'react-feather'
 import ReactPaginate from 'react-paginate'
-import "assets/css/paginate.css"
-import "assets/css/customDatatable.css"
-import "assets/css/filter.css"
 import CustomAlert from './CustomAlert'
 import { myContext } from 'utility/MyContext.js'
 
