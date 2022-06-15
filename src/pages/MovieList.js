@@ -89,6 +89,7 @@ const MovieList = () => {
 
   const handleFilter = (e) => {
     setSearchvalue(e.target.value)
+    setCurrentPage(0)
     data.searchValue = e.target.value
     searchValue?.length > 0 && dispatch(getMoviesBySearchValue(data.searchValue, data.pageNumber))
   }
