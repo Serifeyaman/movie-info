@@ -1,12 +1,12 @@
 import CustomDatatable from 'components/CustomDatatable'
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Button } from 'reactstrap'
+import { Button, Card, CardBody, CardHeader, CardTitle, Col, Input, Label, Row } from 'reactstrap'
+import { getMoviesBySearchValue } from 'redux/movie/action'
+import { myContext } from 'utility/MyContext'
 
 const MovieList = () => {
-
-  const { movieList } = useSelector(state => state.MovieReducer)
 
   const columns = [
     {
@@ -33,8 +33,8 @@ const MovieList = () => {
       maxWidth: "35%",
       cell: (a) => {
         return (
-          <Link style={{textDecoration:'none'}} to={`movieDetail/${a.imdbID}`}>
-            <span style={{color:'black'}}>{a.Title}</span>
+          <Link style={{ textDecoration: 'none' }} to={`movieDetail/${a.imdbID}`}>
+            <span style={{ color: 'black' }}>{a.Title}</span>
           </Link>
         )
       }
@@ -64,10 +64,98 @@ const MovieList = () => {
     },
   ]
 
+
+  const dispatch = useDispatch()
+  const { movieList } = useSelector(state => state.MovieReducer)
+
+  const [currentPage, setCurrentPage] = useState(0)
+  const [searchValue, setSearchvalue] = useState("Pokemon")
+  const [yearSearch, setYearSearch] = useState("")
+  const [typeSearch, setTypeSearch] = useState("")
+
+  let data = {
+    searchValue: searchValue,
+    pageNumber: currentPage + 1,
+    type: typeSearch,
+    year: yearSearch
+  }
+
+  useEffect(() => {
+    dispatch(getMoviesBySearchValue(data))
+  }, [currentPage, searchValue, typeSearch, yearSearch])
+
+  const handleFilter = (e) => {
+    setSearchvalue(e.target.value)
+    data.searchValue = e.target.value
+    searchValue?.length > 0 && dispatch(getMoviesBySearchValue(data.searchValue, data.pageNumber))
+  }
+
+  const changeType = (e) => {
+    setTypeSearch(e.target.value)
+    setCurrentPage(0)
+  }
+
+  const changeYear = (e) => {
+    setYearSearch(e.target.value)
+    setCurrentPage(0)
+  }
+
   return (
-    <div>
-      <CustomDatatable columns={columns} title="Filmler" data={movieList?.Search} dataLength={movieList?.totalResults} />
-    </div>
+    <myContext.Provider value={{ currentPage: currentPage, setCurrentPage: setCurrentPage, searchValue: searchValue, dataLength: movieList?.totalResults }}>
+      <Card className='dataTableCard'>
+        <CardHeader className='border-bottom'>
+          <Row className='m-3'>
+            <Col>
+              <CardTitle style={{ color: '#22577E' }} tag='h3'>Film Listesi</CardTitle>
+            </Col>
+          </Row>
+          <Row className='m-3'>
+            <Col >
+              <Label className='filterLabel'>
+                Film Adı
+              </Label>
+              <Input
+                className='filterInput'
+                type='text'
+                bsSize='lg'
+                onChange={handleFilter}
+                defaultValue={"Pokemon"}
+              />
+            </Col>
+            <Col >
+              <Label className='filterLabel'>
+                Vizyona Girme Tarihi
+              </Label>
+              <Input
+                className='filterInput'
+                type='text'
+                bsSize='lg'
+                onChange={(e) => changeYear(e)}
+              />
+            </Col>
+            <Col >
+              <Label className='filterLabel'>
+                Tür
+              </Label>
+              <Input
+                className='filterInput'
+                type='text'
+                bsSize='lg'
+                type="select"
+                onChange={(e) => changeType(e)}
+              >
+                <option value={""}>Tür Seçiniz</option>
+                <option value={"series"}>Dizi</option>
+                <option value={"movie"}>Film</option>
+                <option value={"episode"}>Bölüm</option>
+              </Input>
+            </Col>
+          </Row>
+
+        </CardHeader>
+        <CustomDatatable columns={columns} title="Filmler" data={movieList?.Search} />
+      </Card>
+    </myContext.Provider>
   )
 }
 

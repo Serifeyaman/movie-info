@@ -1,8 +1,8 @@
 import { getMovies, getMoviesByImdbId } from "services/MovieService";
 
-export const getMoviesBySearchValue = (searchValue, pageNumber) => {
+export const getMoviesBySearchValue = (data) => {
     return dispatch => {
-        getMovies(searchValue, pageNumber).then((res) => {
+        getMovies(data).then((res) => {
             dispatch({
                 type: 'GET_MOVIES_BY_SEARCH_VALUE',
                 movieList: res.data

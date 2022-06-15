@@ -1,8 +1,8 @@
 import axios from "axios";
 import { URL } from "constants/api";
 
-export const getMovies = (searchValue, pageNumber) => {
-    return axios.get(`${URL}&s=${searchValue}&page=${pageNumber}`)
+export const getMovies = (data) => {
+    return axios.get(`${URL}&s=${data.searchValue}&page=${data.pageNumber}&type=${data.type}&y=${data.year}`)
 }
 
 export const getMoviesByImdbId = (imdbId) => {
