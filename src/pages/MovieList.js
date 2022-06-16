@@ -116,7 +116,7 @@ const MovieList = () => {
           <Row className='m-3'>
             <Col >
               <Label className='filterLabel'>
-                Film Adı
+                Film Adı:
               </Label>
               <Input
                 className='filterInput'
@@ -128,7 +128,7 @@ const MovieList = () => {
             </Col>
             <Col >
               <Label className='filterLabel'>
-                Tarih
+                Tarih:
               </Label>
               <Input
                 placeholder='Yayınlanma Tarihi Ara'
@@ -140,7 +140,7 @@ const MovieList = () => {
             </Col>
             <Col >
               <Label className='filterLabel'>
-                Tür
+                Tür:
               </Label>
               <Input
                 className='filterInput'
